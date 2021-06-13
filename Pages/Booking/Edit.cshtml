@@ -1,0 +1,45 @@
+﻿@page
+@model TourTravel.Pages.Booking.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PackageBooking</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PackageBooking.Id" />
+            <div class="form-group">
+                <label asp-for="PackageBooking.Name" class="control-label"></label>
+                <input asp-for="PackageBooking.Name" class="form-control" />
+                <span asp-validation-for="PackageBooking.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageBooking.Payment" class="control-label"></label>
+                <input asp-for="PackageBooking.Payment" class="form-control" />
+                <span asp-validation-for="PackageBooking.Payment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PackageBooking.PaymentDate" class="control-label"></label>
+                <input asp-for="PackageBooking.PaymentDate" class="form-control" />
+                <span asp-validation-for="PackageBooking.PaymentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

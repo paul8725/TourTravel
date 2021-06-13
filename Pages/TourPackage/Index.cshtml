@@ -1,0 +1,37 @@
+﻿@page
+@model TourTravel.Pages.TourPackage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var item in Model.Package)
+            { 
+        <div class="col-md-4">
+            <h1 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h1>
+            <img src="https://img.naidunia.com/naidunia/ndnimg/26052020/26_05_2020-tour_and_travel.jpg" class="img-fluid img-thumbnail" />
+            <h2 class="text-center"> @Html.DisplayFor(modelItem => item.Description)</h2>
+            <hr />
+            <h3 class="text-lg-center"> @Html.DisplayFor(modelItem => item.Duration)</h3>
+            <hr />
+            <h1>@Html.DisplayFor(modelItem => item.Payment)</h1>
+            <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> |
+            <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-danger">Details</a> |
+            <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-success">Delete</a>
+
+        </div>
+            
+        }
+        
+        </div>
+</div>
+           
